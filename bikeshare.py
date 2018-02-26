@@ -234,7 +234,8 @@ def trip_duration(data):
     # Do not report hours if hours is 0
     if h == 0:
         average_trip = "{}min {}sec".format(int(m), round(s, 2))
-    average_trip = "{}hr {}min {}sec".format(int(h), int(m), round(s, 2))
+    else:
+        average_trip = "{}hr {}min {}sec".format(int(h), int(m), round(s, 2))
 
     return total_duration, average_trip, element_count
 
@@ -257,7 +258,7 @@ def info_type(data, key):
     return count_list
 
 def key_info(data, key):
-    '''Confirms whether key is a key in dictionaries in data. If so,
+    '''Confirms whether key is a key in data. If so,
        returns counts of each element type in the key using info_type function.
        Manages '' entries by converting them to 'Unknown'.
     Arg:
