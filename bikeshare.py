@@ -28,10 +28,12 @@ def get_city():
     # Use the input to select a filename
     city = city.lower()
     if city == 'chicago':
-        return 'chicago.csv'
+        result = 'chicago.csv'
     elif city == 'new york':
-        return 'new_york_city.csv'
-    return 'washington.csv'
+        result =  'new_york_city.csv'
+    else:
+        result = 'washington.csv'
+    return result
 
 def get_time_period():
     '''Asks the user for a time period by which to filter the data and returns the specified filter.
