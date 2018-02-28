@@ -1,4 +1,4 @@
-'''Final project version for Udacity's DAND Project 2: Explore US Bikeshare Data.'''
+'''Updated project for Udacity's DAND Project 2: Explore US Bikeshare Data.'''
 
 from calendar import day_name, month_name
 from datetime import datetime
@@ -8,12 +8,13 @@ from csv import DictReader as dictr
 import time
 
 def get_city():
-    '''Asks the user for a city and returns the filename for that city's bike share data.
+    '''Asks the user for one of three cities and returns the city name and filename for 
+       that city's bike share data.
 
     Args:
         none.
     Returns:
-        (str) filename for a city's bikeshare data from input.
+        (str) lowercase name of city, (str) filename for a city's bikeshare data from input.
     '''
     # Ask user for input while managing incorrect input
     while True:
@@ -28,12 +29,12 @@ def get_city():
     # Use the input to select a filename
     city = city.lower()
     if city == 'chicago':
-        result = 'chicago.csv'
+        file = 'chicago.csv'
     elif city == 'new york':
-        result =  'new_york_city.csv'
+        file =  'new_york_city.csv'
     else:
-        result = 'washington.csv'
-    return result
+        file = 'washington.csv'
+    return city, file
 
 def get_time_period():
     '''Asks the user for a time period by which to filter the data and returns the specified filter.
@@ -661,8 +662,10 @@ def statistics():
     # Get statistics if no filter is used
     if time_period == 'none':
         # Create list of dictionaries based on selected city
-        city_data = create_dict(city)
+        city_data = create_dict(city[1])
         # Print statistics and get run_time_info
+        print('\n--- Printing US Bikeshare Statistics for', city[0].title(), '---\n'
+              '    (Full city data provided)')
         print('\n---Trip Start Info---')
         run_time_info = month_info(city_data, run_time_info)
         run_time_info = day_info(city_data, run_time_info)
@@ -681,6 +684,8 @@ def statistics():
         city_data = create_dict(city)
         city_data = filter_dict(city_data, time_period, selected_month)
         # Print statistics and get run_time_info
+        print('\n--- Printing US Bikeshare Statistics for', city[0].title(), '---\n'
+              '    (Data for', selected_month,'provided)')
         print('\n---Trip Start Info---')
         run_time_info = day_info(city_data, run_time_info)
         run_time_info = hour_info(city_data, run_time_info)
@@ -698,6 +703,8 @@ def statistics():
         city_data = create_dict(city)
         city_data = filter_dict(city_data, time_period, selected_day)
         # Print statistics and get run_time_info
+        print('\n--- Printing US Bikeshare Statistics for', city[0].title(), '---\n'
+              '    (Data for all {}s provided)'.format(day_name[selected_day]))
         print('\n---Trip Start Info---')
         run_time_info = hour_info(city_data, run_time_info)
         run_time_info = print_trip_user_info(city_data, run_time_info)
@@ -716,6 +723,8 @@ def statistics():
         city_data = create_dict(city)
         city_data = filter_dict(city_data, time_period, selected_month, selected_day)
         # Print statistics and get run_time_info
+        print('\n--- Printing US Bikeshare Statistics for', city[0].title(), '---\n'
+              '    (Data for all {}s in {} provided)'.format(day_name[selected_day], selected_month))
         print('\n---Trip Start Info---')
         run_time_info = hour_info(city_data, run_time_info)
         run_time_info = print_trip_user_info(city_data, run_time_info)
