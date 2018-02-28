@@ -1,4 +1,4 @@
-'''Final project version for Udacity's DAND Project 2: Explore US Bikeshare Data.'''
+'''Original final project version for Udacity's DAND Project 2: Explore US Bikeshare Data.'''
 
 from calendar import day_name, month_name
 from datetime import datetime
