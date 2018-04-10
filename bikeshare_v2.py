@@ -1,3 +1,4 @@
+'''Updated version of bikeshare project, specifically converting from standard python to pandas.'''
 from calendar import day_name, month_name
 from datetime import datetime
 from datetime import time as Time
@@ -615,7 +616,7 @@ def print_user_info(df, column1, column2, city, run_time_list):
         run_time_list: (list).
     '''
     print('\n---User Info---')
-    # run_time_list = user_info(df, column1, city, run_time_list)
+    run_time_list = user_info(df, city, run_time_list)
     run_time_list = gender_info(df, column1, city, run_time_list)
     run_time_list = birth_year_info(df, column2, city, run_time_list)
 
