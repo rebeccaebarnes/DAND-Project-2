@@ -12,7 +12,7 @@ The user was provided with information (both text and visuals) on metrics such a
 
 A walk-thru of the experience is found in the [Jupyter Notebook](https://github.com/rebeccaebarnes/DAND-Project-2/blob/Updated-project/bikeshare-code-walkthru.ipynb) and some brief findings are found at [my blog](https://rebeccaebarnes.github.io/2018/02/27/learning-python).
 
-##Technologies Used
+## Technologies Used
 - Python, Pandas, Numpy, Matplotlib
 - Excel
 - Jupyter Notebooks
